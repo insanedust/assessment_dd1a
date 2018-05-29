@@ -1,0 +1,34 @@
+{
+  "name": "assessment_dd1a",
+  "version": "1.0.0",
+  "description": "Intranet Food Ordering Services",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insanedust/assessment_dd1a.git"
+  },
+  "keywords": [
+    "Node",
+    "Postrgres",
+    "Express",
+    "Ordering",
+    "System"
+  ],
+  "author": "Dustin Bishop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/insanedust/assessment_dd1a/issues"
+  },
+  "homepage": "https://github.com/insanedust/assessment_dd1a#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "nodemailer": "^4.6.5",
+    "order-id": "^1.1.0",
+    "pg": "^7.4.3"
+  }
+}

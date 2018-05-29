@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/home.css">
+    <title>Menu</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6">
+          <h1>FOOD MENU</h1>
+        </div>
+        <div class="cold-xs-6 col-sm-6">
+            <h1>ORDER</h1>
+            <div class="row">
+                <h5> ORDER NO:</h5>
+                <p id="orderNo"><%= orderNo %></p>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div id="menu" class="col-md-6">
+            <div id="accordion">
+            <% for(var i = 0; i < cat.length; i++) {%>
+
+              <div class="card">
+                  <div class="card-header" id=<%="card"+ cat[i].name %>>
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target=<%="#collapse"+cat[i].name %> aria-expanded="true" aria-controls="<%="collapse"+cat[i].name%>">
+                        <%=cat[i].name %>
+                      </button>
+                    </h5>
+                  </div>              
+                  <div id=<%="collapse"+cat[i].name %> class="collapse collapsed" aria-labelledby=<%="card"+cat[i].name%> data-parent="#accordion">
+                    <div class="card-body" id=<%="card"+cat[i].category_id %> data-key=<%=cat[i].category_id%>>                    
+                    </div>
+                  </div>
+                </div>
+              <%}%>
+            </div>
+        </div>
+        <div id=orders class="col-md-6">
+
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody id="customBody">
+                </tbody>
+              </table>
+              <h2 id="totalValue">Total: R</h2>
+              <div class="row">
+                <div class="col-xs-4">
+                    <button id="orderButton"class="btn btn-success">Place Order</button>
+                </div>
+                <div class="col-xs-4">
+                  <form>
+                    <input type="text" placeholder="Please enter email address here" class="form-control" id="emailInput" required>
+                  </form>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="../public/js/main.js"></script>
+  </body>
+</html>

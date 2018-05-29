@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+}
+
+
+#aside-left {
+    border: 1px solid red;
+}
+
+#aside-right {
+    border: 1px solid green;
+}
+
+.button {
+    text-align: center;
+}
+.card-body {
+    text-align: center;
+}
+
+.card-body p {
+    color:green;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
