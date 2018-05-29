@@ -15,7 +15,7 @@ Postgres SQL is the database and backup of data will be provided.
 Download Nodejs for operating system and follow the prompts provided.
 
 Download and install Postgres SQL follow prompts to install. Make sure you take note of password otherwise reinstall needed.
-Inside repo will be folder call database and the database backup file will be located there.
+Inside repo will be folder called database and the database backup file will be located there.
 
 ## Deployment
 
