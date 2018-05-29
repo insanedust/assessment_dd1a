@@ -1,4 +1,4 @@
-# regapp
+# Food Order System
 Intranet Application for staff to order food internally in the company
 
 ## Getting Started
