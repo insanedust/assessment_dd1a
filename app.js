@@ -116,10 +116,7 @@ Router.route('/menuitems')
         .then((result) => res.status(200).json(result.rows))
         .catch(e => console.error(e.stack));
     })
-    .put()
-    .patch()
-    .delete()
-
+ 
     Router.route('/menuitems/detailed')
     .get((req,res) => {
         dbClient.query("SELECT menu_category.category_id, menu_category.name , menu_items.category_id as menucat_id, menuitem_id, menu_items.name, menu_items.description, menu_items.price FROM menu_category INNER JOIN menu_items ON menu_category.category_id = menu_items.category_id")
@@ -149,26 +146,34 @@ Router.route('/menuitems')
         })
 
         .post((req,res)=>{
-            dbClient.query("INSERT INTO orders(menuitem_id, price, order_no)VALUES(" + req.body.menuitem_id + "," + req.body.price +"," + req.body.order_no +")")
-                .then((result) =>{ res.status(201).json({message: "Order: " + req.body.order_noAdded + " Successfully."})})
+
+            
+            req.body.forEach(function(item){
+                console.log()
+                dbClient.query("INSERT INTO orders(menuitem_id, price, order_no)VALUES(" + item.menuitem_id + "," + item.price +"," + item.order_no +")")
+                .then((result) =>{ res.status(201).json({message: "Order: " + item.order_no + " added " + " Successfully"})})
                 .catch(e => console.log(e.stack));
+            });
+            
 
                 var mailOptions = {
                     from: 'admin@weliketoeat.co.za',
-                    to: req.body.email,
+                    to: req.body[0].email,
                     subject: 'Thank you for your purchase',
-                    text: 'Your order ' + req.body.order_no + " will be delivered shortly"
+                    text: 'Your order ' + req.body[0].order_no + " will be delivered shortly"
                   };
 
                 var adminNotification = {
                     from: 'admin@weliketoeat.co.za',
                     to: 'admin@weliketoeat.co.za',
-                    subject: "new order: " + req.body.order_no,
-                    text: 'New order being dispatched:' + " " + req.body.order_no
+                    subject: "new order: " + req.body[0].order_no,
+                    text: 'New order being dispatched:' + " " + req.body[0].order_no
                 };
                 
                 sendEmail(adminNotification);
                 sendEmail(mailOptions);
+                console.log(req.body);
+                res.status(200).send("ok");
 
         })
 

@@ -176,14 +176,18 @@ function updateOrdersList(itemId){
 function placeOrder(sessionStorage){
     var emailAddress = document.getElementById("emailInput").value;
     var orderNo = document.getElementById("orderNo").innerText;
+
+    var data = [];
     sessionStorage.forEach(function(item){
 
-        var data = {
+        data.push({
             menuitem_id: item.menuitem_id,
             order_no: orderNo,
             price: item.price,
             email: emailAddress
-        };
+        });
+
+    });
 
         var jsonData = JSON.stringify(data);
         sendData(jsonData);
@@ -199,5 +203,5 @@ function placeOrder(sessionStorage){
             xhttp.send(data);
             window.location = "http://localhost:3000/summary/" + orderNo;
         }
-    });
+    
 }
