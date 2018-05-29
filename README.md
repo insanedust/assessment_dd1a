@@ -30,7 +30,7 @@ You can use tools jsfiddler or postmon to send GET, POST, PUT, PATCH and DELETE 
 * [NodeJS](https://nodejs.org) - The JavaScript framework to run JavaScript in the Backend.
 * [MongoDB](https://www.mongodb.com/) - MongoDB is a free and open-source cross-platform document-oriented database program.
 * [ExpressJS](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
-* [Mongoose](http://mongoosejs.com/) - elegant mongodb object modeling for node.js.
+* [PG](http://mongoosejs.com/) - Postgres modules for using postgres database.
 
 ## Authors
 
