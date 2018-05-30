@@ -35,7 +35,6 @@ app.get('/',(req,res)=>{
 app.get('/summary/:orderNo',(req,res)=>{
     var id = orderid.generate();
     var order_no = req.params.orderNo.toString();
-    console.log(order_no);
     queryString = "SELECT menu_items.name, orders.order_id, orders.price, orders.order_no, menu_items.description, menu_items.menuitem_id FROM menu_items INNER JOIN orders ON menu_items.menuitem_id = orders.menuitem_id WHERE orders.order_no = '" + order_no + "'";
     dbClient.query(queryString)
     .then((result) => {
@@ -46,7 +45,8 @@ app.get('/summary/:orderNo',(req,res)=>{
         res.status(200).render("summary", 
         {
             order: result.rows,
-            total: sumtotal
+            total: sumtotal,
+            title: "Summary"
         })
     })
     .catch(e => console.error(e.stack));
@@ -172,7 +172,6 @@ Router.route('/menuitems')
                 
                 sendEmail(adminNotification);
                 sendEmail(mailOptions);
-                console.log(req.body);
                 res.status(200).send("ok");
 
         })
